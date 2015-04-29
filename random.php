@@ -1,30 +1,37 @@
 <?php
-    include ("whatever.php");
+    //include ("whatever.php");
     include ("random_image.php");
 ?>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <?php
         include ("header.php");
     ?>
 
+	<title>Random</title>
+  	<link rel="stylesheet" href="css/skeleton.css">
+  	<link rel="stylesheet" type="text/css" href="css/custom.css">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- Navigation -->
     <?php
-        include ("nav.php");
+		if(!isset($_SESSION['login_user']))
+		{
+			include 'loggedOutNav.php';
+		}
+		else
+		{
+			include 'loggedInNav.php';
+		}
     ?>
 
     <!-- Page Content -->
@@ -33,7 +40,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><?php echo $pageTitles[$url]; ?>
+                <h1 class="page-header"><?php //echo $pageTitles[$url]; ?>
                     <small>wallpapers</small>
                 </h1>
             </div>

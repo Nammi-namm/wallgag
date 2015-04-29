@@ -1,43 +1,38 @@
-<?php
-    include ("whatever.php");
-    //include ("test_page.php");
-    //include ("class.datamanager.php");
-    //$db_man = new DatabaseManager('localhost','PictureBase','root','');
-    include ("random_image.php");
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<?php 
+	include_once ("dbcon/class.datamanager.php");
+	$db_man = new DatabaseManager('localhost', 'PictureBase', 'user', '');
+	include 'startsession.php'; 
 ?>
-<html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php
-        include ("header.php");
-    ?>
-
-    <!-- Bootstrap Core CSS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wallgur</title>
+  	<link rel="stylesheet" href="css/skeleton.css">
+  	<link rel="stylesheet" type="text/css" href="css/custom.css">
+  	<!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
-    <?php if (isset($imageSize)) { ?>
-        <style>
-            figcaption {
-                width: <?= $imageSize[0]; ?>px;
-            }
-        </style>
-     <?php } ?>
-
-</head>
-
-<body>
-    <!-- Navigation -->
-    <?php
-        include ("nav.php");
+  	<?php
+        include ("header.php");
     ?>
-
-    <!-- Page Content -->
+</head>
+<body>
+	<?php
+		 if(!isset($_SESSION['login_user']))
+		{
+			include 'loggedOutNav.php';
+		}
+		else
+		{
+			include 'loggedInNav.php';
+		}
+	
+	?>
+	
+	<!-- Page Content -->
     <div class="container">
         <!--<figure>
             <img src="<?= $selectedImage; ?>" alt="Random image">
@@ -46,7 +41,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><?php echo $pageTitles[$url]; ?>
+                <h1 class="page-header"><?php //echo $pageTitles[$url]; ?>
                     <small>wallpapers</small>
                 </h1>
             </div>
@@ -183,22 +178,11 @@
             </div>
         </div>
         <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
-        <?php
-            include ("footer.php");
-        ?>
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
+	</div>
+</section>
+ <!-- Footer -->
+	<?php
+		include ("footer.php");
+	?>
 </body>
-
 </html>

@@ -1,0 +1,36 @@
+.navigation {
+	background-color:black;
+	color:white;
+}
+li {
+	text-decoration: none;
+	text-transform: none;
+	list-style-type: none;
+	list-style: none;
+
+}
+nav ul li {
+	margin-left:20px;
+	padding:10px;
+	display:inline;
+	float:left;
+	position: relative;
+}
+nav ul li a {
+	display:inline-block;
+	color:#ebebeb;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+h2 {
+	padding:50px;
+}
+label {
+	display:inline;
+}
+.logout {
+	color:red;
+}
+.buttonn {
+	background-color:red;
+}
