@@ -16,18 +16,12 @@ if(isset($_POST['submit']))
 		$sql = $pdo->prepare("SELECT userPassword FROM users WHERE userName =:a");
 		$sql->setFetchMode(PDO::FETCH_ASSOC);
 		$sql->bindParam(':a',$username,PDO::PARAM_STR);
-		$sql->execute();
+		$sqlpassword = $sql->execute();
 		$count = $sql->rowCount();
 		//ná í passið í db
 		if($count == 1)
 		{
-			while ($row = $sql->fetch()) 
-			{
-				$hash = $row['userPassword'];
-			}
-
-			//kikja hvort hashin passa
-			if (password_verify($password, $hash)) 
+			if ($password == $sqlpassword) 
 			{
 			    $_SESSION['login_user'] = $username;
 			    header("Location: index.php");

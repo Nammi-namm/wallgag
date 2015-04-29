@@ -28,7 +28,7 @@ if($username !='' && $email !='' && $password !='')
 
 	else 
 	{
-			$pw = password_hash($password,PASSWORD_DEFAULT);
+			$pw = ($password);
 			$sql = "INSERT INTO users(userEmail,userName,userPassword) VALUES (:a,:b,:c)";
 			$go = $pdo->prepare($sql);
 			$go->bindParam(':a',$email,PDO::PARAM_STR);
