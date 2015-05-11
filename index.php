@@ -3,7 +3,7 @@
 
 <?php 
 	include_once ("dbcon/class.datamanager.php");
-	$db_man = new DatabaseManager('localhost', 'PictureBase', 'user', '');
+	$db_man = new DatabaseManager('localhost', 'bennispenni_PictureBase', 'bennispenni', 'password');
 	include 'startsession.php'; 
 ?>
 <head>

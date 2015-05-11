@@ -1,8 +1,8 @@
 <?php 
 try{
 	$source ='mysql:host=localhost;dbname=bennispenni_picturebase';
-	$user = 'user';
-	$password ='';
+	$user = 'bennispenni';
+	$password ='password';
 
 	$pdo = new PDO($source,$user,$password);
 }
